@@ -1,8 +1,18 @@
 <h1>Panel!!!!!!!</h1>
 <button id='increament'>++</button>
+<input type='color' id='color'/>
 <script>
   var btn = document.getElementById('increament');
   btn.addEventListener('click', function(){
-    addon.postMessage("increament");
+    addon.postMessage({
+      type: 'increament'
+    });
+  })
+  var color = document.getElementById('color');
+  color.addEventListener('change', function(){
+    addon.postMessage({
+      type: 'color',
+      value: color.value
+    });
   })
 </script>
