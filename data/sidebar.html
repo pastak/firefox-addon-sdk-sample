@@ -1,0 +1,15 @@
+<script>
+  addon.port.on('ping', function(message){
+    console.log(message);
+    var data = message;//JSON.parse(message);
+    var weather = data.weather[0];
+    document.body.innerHTML = `
+    <ul>
+      <li>Weather: ${weather.main}</li>
+      <li>Description: ${weather.description}</li>
+      <li>Sunrise: ${Date(data.sys.sunrise)} </li>
+      <li>Sunset: ${Date(data.sys.sunset)}</li>
+    </ul>
+    `;
+  })
+</script>
